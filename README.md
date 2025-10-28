@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -81,6 +82,30 @@
     .btn-glow:hover::before {
       left: 100%;
     }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 1rem;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: right;
+    }
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    tr {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    .dark tr {
+      background: #1f2937;
+    }
+    .dark th {
+      background: #111827;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-500">
@@ -117,11 +142,11 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center space-x-reverse space-x-8">
-        <a href="#" class="hover:text-yellow-300 transition-colors font-medium">خانه</a>
-        <a href="#" class="hover:text-yellow-300 transition-colors font-medium">انتخاب واحد</a>
-        <a href="#" class="hover:text-yellow-300 transition-colors font-medium">خوابگاه</a>
-        <a href="#" class="hover:text-yellow-300 transition-colors font-medium">رزرو غذا</a>
-        <a href="#" class="text-yellow-300 font-bold">خروج</a>
+        <a href="#home" class="hover:text-yellow-300 transition-colors font-medium">خانه</a>
+        <a href="#unit" class="hover:text-yellow-300 transition-colors font-medium">انتخاب واحد</a>
+        <a href="#dorm" class="hover:text-yellow-300 transition-colors font-medium">خوابگاه</a>
+        <a href="#food" class="hover:text-yellow-300 transition-colors font-medium">رزرو غذا</a>
+        <a href="#" class="text-yellow-300 font-bold" onclick="logout()">خروج</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -135,16 +160,16 @@
   <div id="mobile-menu" class="fixed inset-0 bg-slate-900 bg-opacity-95 z-40 hidden flex items-center justify-center">
     <button id="close-menu" class="absolute top-6 left-6 text-white text-3xl">&times;</button>
     <nav class="text-center space-y-8 text-2xl">
-      <a href="#" class="block text-white hover:text-yellow-400 transition">خانه</a>
-      <a href="#" class="block text-white hover:text-yellow-400 transition">انتخاب واحد</a>
-      <a href="#" class="block text-white hover:text-yellow-400 transition">خوابگاه</a>
-      <a href="#" class="block text-white hover:text-yellow-400 transition">رزرو غذا</a>
-      <a href="#" class="block text-yellow-400 font-bold">خروج</a>
+      <a href="#home" class="block text-white hover:text-yellow-400 transition">خانه</a>
+      <a href="#unit" class="block text-white hover:text-yellow-400 transition">انتخاب واحد</a>
+      <a href="#dorm" class="block text-white hover:text-yellow-400 transition">خوابگاه</a>
+      <a href="#food" class="block text-white hover:text-yellow-400 transition">رزرو غذا</a>
+      <a href="#" class="block text-yellow-400 font-bold" onclick="logout()">خروج</a>
     </nav>
   </div>
 
-  <!-- Hero Section -->
-  <section class="relative py-24 overflow-hidden">
+  <!-- Hero Section (Home) -->
+  <section id="home" class="relative py-24 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/10"></div>
     <div class="container mx-auto px-6 text-center relative z-10">
       <h2 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold text-blue-900 dark:text-blue-300 mb-6">
@@ -175,9 +200,9 @@
           <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
             دروس ترم جدید را با فیلترهای هوشمند مشاهده و ثبت‌نام کنید.
           </p>
-          <button onclick="openPage('unit')" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold shadow-lg hover:shadow-blue-500/25 transition-all">
+          <a href="#unit" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold shadow-lg hover:shadow-blue-500/25 transition-all block text-center">
             ورود به سیستم
-          </button>
+          </a>
         </div>
       </div>
 
@@ -192,9 +217,9 @@
           <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
             اتاق دلخواه خود را با یک کلیک رزرو یا تمدید کنید.
           </p>
-          <button onclick="openPage('dorm')" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold shadow-lg hover:shadow-amber-500/25 transition-all">
+          <a href="#dorm" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold shadow-lg hover:shadow-amber-500/25 transition-all block text-center">
             رزرو اتاق
-          </button>
+          </a>
         </div>
       </div>
 
@@ -209,9 +234,158 @@
           <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
             منوی هفته آینده را ببینید و غذای مورد علاقه خود را رزرو کنید.
           </p>
-          <button onclick="openPage('food')" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold shadow-lg hover:shadow-green-500/25 transition-all">
+          <a href="#food" class="btn-glow w-full py-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold shadow-lg hover:shadow-green-500/25 transition-all block text-center">
             انتخاب غذا
-          </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unit Selection Section -->
+  <section id="unit" class="py-16 bg-slate-100 dark:bg-slate-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-blue-900 dark:text-blue-300">انتخاب واحد</h2>
+      <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl">
+        <div class="mb-6 flex justify-between items-center">
+          <input type="text" id="unit-search" placeholder="جستجو دروس..." class="p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent w-1/2">
+          <select id="unit-filter" class="p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+            <option>همه گروه‌ها</option>
+            <option>کامپیوتر</option>
+            <option>مهندسی</option>
+            <option>علوم پایه</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>نام درس</th>
+              <th>واحد</th>
+              <th>استاد</th>
+              <th>زمان</th>
+              <th>انتخاب</th>
+            </tr>
+          </thead>
+          <tbody id="unit-table">
+            <!-- Sample Rows -->
+            <tr>
+              <td>برنامه‌نویسی پیشرفته</td>
+              <td>3</td>
+              <td>دکتر احمدی</td>
+              <td>شنبه 10-12</td>
+              <td><input type="checkbox" class="unit-checkbox"></td>
+            </tr>
+            <tr>
+              <td>ریاضیات گسسته</td>
+              <td>3</td>
+              <td>دکتر رضایی</td>
+              <td>یکشنبه 14-16</td>
+              <td><input type="checkbox" class="unit-checkbox"></td>
+            </tr>
+            <tr>
+              <td>فیزیک 1</td>
+              <td>4</td>
+              <td>دکتر محمدی</td>
+              <td>دوشنبه 8-10</td>
+              <td><input type="checkbox" class="unit-checkbox"></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <div class="mt-8 flex justify-end">
+          <button onclick="saveUnits()" class="btn-glow px-8 py-3 rounded-xl bg-blue-600 text-white font-bold shadow-lg">ثبت انتخاب واحد</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dorm Reservation Section -->
+  <section id="dorm" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-amber-700 dark:text-amber-300">رزرو خوابگاه</h2>
+      <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl">
+        <form id="dorm-form">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label class="block mb-2 font-medium">نوع اتاق</label>
+              <select class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+                <option>تک نفره</option>
+                <option>دو نفره</option>
+                <option>سه نفره</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-2 font-medium">ساختمان</label>
+              <select class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+                <option>ساختمان A</option>
+                <option>ساختمان B</option>
+                <option>ساختمان C</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-2 font-medium">طبقه</label>
+              <input type="number" min="1" max="10" class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+            </div>
+            <div>
+              <label class="block mb-2 font-medium">شماره اتاق</label>
+              <input type="text" placeholder="مثال: 101" class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button type="button" onclick="saveDorm()" class="btn-glow px-8 py-3 rounded-xl bg-amber-600 text-white font-bold shadow-lg">رزرو اتاق</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Reservation Section -->
+  <section id="food" class="py-16 bg-slate-100 dark:bg-slate-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-green-700 dark:text-green-300">رزرو غذا</h2>
+      <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl">
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">انتخاب روز</label>
+          <select id="food-day" class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
+            <option>شنبه</option>
+            <option>یکشنبه</option>
+            <option>دوشنبه</option>
+            <option>سه‌شنبه</option>
+            <option>چهارشنبه</option>
+            <option>پنجشنبه</option>
+            <option>جمعه</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>نام غذا</th>
+              <th>قیمت (تومان)</th>
+              <th>انتخاب</th>
+            </tr>
+          </thead>
+          <tbody id="food-table">
+            <!-- Sample Rows -->
+            <tr>
+              <td>چلو کباب</td>
+              <td>۵۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
+              <td>زرشک پلو با مرغ</td>
+              <td>۴۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
+              <td>قورمه سبزی</td>
+              <td>۳۵,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <div class="mt-8 flex justify-end">
+          <button onclick="saveFood()" class="btn-glow px-8 py-3 rounded-xl bg-green-600 text-white font-bold shadow-lg">ثبت رزرو غذا</button>
         </div>
       </div>
     </div>
@@ -257,7 +431,14 @@
     themeToggle.addEventListener('click', () => {
       html.classList.toggle('dark');
       themeToggle.innerHTML = html.classList.contains('dark') ? sunIcon : moonIcon;
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+      themeToggle.innerHTML = sunIcon;
+    }
 
     // Mobile Menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -270,116 +451,65 @@
       if (e.target === mobileMenu) mobileMenu.classList.add('hidden');
     });
 
-    // Open Page Function
-    function openPage(page) {
-      const pages = {
-        unit: { name: "انتخاب واحد", color: "bg-blue-600" },
-        dorm: { name: "خوابگاه", color: "bg-amber-600" },
-        food: { name: "رزرو غذا", color: "bg-green-600" }
-      };
-      
-      const { name, color } = pages[page];
-      const modal = document.createElement('div');
-      modal.className = `fixed inset-0 ${color} bg-opacity-95 z-50 flex items-center justify-center p-6`;
-      modal.innerHTML = `
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-10 max-w-md w-full shadow-2xl text-center animate-pulse">
-          <i class="ti ti-loader-2 text-6xl text-blue-600 mb-6 animate-spin"></i>
-          <h3 class="text-2xl font-bold mb-3">در حال ورود...</h3>
-          <p class="text-lg text-slate-600 dark:text-slate-300">به بخش <strong>${name}</strong></p>
-          <button onclick="this.parentElement.parentElement.remove()" class="mt-8 px-6 py-2 bg-slate-200 dark:bg-slate-700 rounded-xl">بستن</button>
-        </div>
-      `;
-      document.body.appendChild(modal);
-      setTimeout(() => modal.remove(), 3000);
-    }
-
-    // Add pulse to hero dots
-    setInterval(() => {
-      document.querySelectorAll('.animate-pulse').forEach(el => {
-        el.style.animation = 'none';
-        setTimeout(() => el.style.animation = '', 10);
+    // Smooth Scroll for Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        mobileMenu.classList.add('hidden');
       });
-    }, 3000);
-  </script>
-</body>
-</html>      font-weight: bold;
-      transition: background 0.3s;
+    });
+
+    // Unit Selection Functions
+    function saveUnits() {
+      const selected = Array.from(document.querySelectorAll('.unit-checkbox:checked')).map(cb => cb.parentElement.parentElement.children[0].textContent);
+      localStorage.setItem('selectedUnits', JSON.stringify(selected));
+      alert('انتخاب واحد ثبت شد: ' + selected.join(', '));
     }
 
-    .card button:hover {
-      background: #0065d9;
+    // Dorm Reservation Functions
+    function saveDorm() {
+      const formData = new FormData(document.getElementById('dorm-form'));
+      const data = Object.fromEntries(formData);
+      localStorage.setItem('dormReservation', JSON.stringify(data));
+      alert('رزرو خوابگاه ثبت شد!');
     }
 
-    footer {
-      background: #004aad;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+    // Food Reservation Functions
+    function saveFood() {
+      const day = document.getElementById('food-day').value;
+      const selected = Array.from(document.querySelectorAll('.food-checkbox:checked')).map(cb => cb.parentElement.parentElement.children[0].textContent);
+      localStorage.setItem('foodReservation_' + day, JSON.stringify(selected));
+      alert('رزرو غذا برای ' + day + ' ثبت شد: ' + selected.join(', '));
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1rem;
-      }
-      .hero h2 {
-        font-size: 1.6rem;
-      }
+    // Logout Function
+    function logout() {
+      localStorage.clear();
+      alert('شما از سیستم خارج شدید.');
+      window.location.href = '#home';
     }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>سامانه دانشگاهی</h1>
-    <nav>
-      <ul>
-        <li><a href="#">خانه</a></li>
-        <li><a href="#">انتخاب واحد</a></li>
-        <li><a href="#">خوابگاه</a></li>
-        <li><a href="#">رزرو غذا</a></li>
-        <li><a href="#">خروج</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h2>به سامانه دانشگاه خوش آمدید</h2>
-    <p>اینجا می‌توانید انتخاب واحد انجام دهید، خوابگاه رزرو کنید و غذای خود را انتخاب نمایید.</p>
-  </section>
+    // Search and Filter for Units
+    const unitSearch = document.getElementById('unit-search');
+    const unitFilter = document.getElementById('unit-filter');
+    const unitTable = document.getElementById('unit-table');
 
-  <section class="cards">
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" alt="انتخاب واحد">
-      <h3>انتخاب واحد</h3>
-      <p>دروس ترم جدید را مشاهده و انتخاب کنید.</p>
-      <button onclick="openPage('unit')">ورود</button>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="خوابگاه">
-      <h3>خوابگاه</h3>
-      <p>اتاق مورد نظر خود را رزرو یا تمدید کنید.</p>
-      <button onclick="openPage('dorm')">ورود</button>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="رزرو غذا">
-      <h3>رزرو غذا</h3>
-      <p>غذای هفته آینده خود را انتخاب و رزرو کنید.</p>
-      <button onclick="openPage('food')">ورود</button>
-    </div>
-  </section>
-
-  <footer>
-    <p>© ۲۰۲۵ سامانه دانشگاهی | طراحی شده توسط تیم فناوری اطلاعات</p>
-  </footer>
-
-  <script>
-    function openPage(page) {
-      alert("در حال ورود به بخش " + page + "...");
-      // در آینده می‌تونی به صفحه مخصوص هر بخش هدایت کنی
-      // location.href = page + ".html";
+    function filterUnits() {
+      const searchText = unitSearch.value.toLowerCase();
+      const filterGroup = unitFilter.value;
+      Array.from(unitTable.rows).forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase();
+        const group = row.getAttribute('data-group') || ''; // Add data-group to rows if needed
+        row.style.display = (name.includes(searchText) && (filterGroup === 'همه گروه‌ها' || group === filterGroup)) ? '' : 'none';
+      });
     }
+
+    unitSearch.addEventListener('input', filterUnits);
+    unitFilter.addEventListener('change', filterUnits);
   </script>
 </body>
 </html>
+```
