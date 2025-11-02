@@ -314,6 +314,7 @@
                 <option>دو نفره</option>
                 <option>سه نفره</option>
                 <option>چهار نفره</option>
+                <option>پنج نفره</option>
               </select>
             </div>
             <div>
