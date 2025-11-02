@@ -318,9 +318,11 @@
             <div>
               <label class="block mb-2 font-medium">ساختمان</label>
               <select class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-transparent">
-                <option>ساختمان A</option>
-                <option>ساختمان B</option>
-                <option>ساختمان C</option>
+                <option>1 ساختمان یاس</option>
+                <option>ساختمان یاس 2</option>
+                <option>ساختمان اندیشه</option>
+                <option>ساختمان بهار</option>
+                <option>ساختمان حافظ</option>
               </select>
             </div>
             <div>
