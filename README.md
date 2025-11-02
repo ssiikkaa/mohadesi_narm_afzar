@@ -254,6 +254,7 @@
             <option>کامپیوتر</option>
             <option>مهندسی</option>
             <option>علوم پایه</option>
+            <option>علوم پایه</option>
           </select>
         </div>
         <table>
