@@ -272,7 +272,7 @@
             <tr>
               <td>برنامه‌نویسی پیشرفته</td>
               <td>3</td>
-              <td>دکتر احمدی</td>
+              <td>دکتر گلباغی</td>
               <td>شنبه 10-12</td>
               <td><input type="checkbox" class="unit-checkbox"></td>
             </tr>
