@@ -279,7 +279,7 @@
             <tr>
               <td>ریاضیات گسسته</td>
               <td>3</td>
-              <td>دکتر رضایی</td>
+              <td>دکتر منبری</td>
               <td>یکشنبه 14-16</td>
               <td><input type="checkbox" class="unit-checkbox"></td>
             </tr>
