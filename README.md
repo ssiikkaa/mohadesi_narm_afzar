@@ -284,9 +284,9 @@
               <td><input type="checkbox" class="unit-checkbox"></td>
             </tr>
             <tr>
-              <td>فیزیک 1</td>
+              <td>هوش مصنوعی</td>
               <td>4</td>
-              <td>دکتر محمدی</td>
+              <td>دکتر شکوهی نیا</td>
               <td>دوشنبه 8-10</td>
               <td><input type="checkbox" class="unit-checkbox"></td>
             </tr>
