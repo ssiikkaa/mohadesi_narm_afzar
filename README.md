@@ -382,6 +382,11 @@
               <td><input type="checkbox" class="food-checkbox"></td>
             </tr>
             <tr>
+              <td>خورشت کرفس</td>
+              <td>۴۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
               <td>قورمه سبزی</td>
               <td>۳۵,۰۰۰</td>
               <td><input type="checkbox" class="food-checkbox"></td>
