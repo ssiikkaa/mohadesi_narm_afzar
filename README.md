@@ -383,6 +383,21 @@
             </tr>
             <tr>
               <td>خورشت کرفس</td>
+              <td>۳۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
+              <td>پیتزا</td>
+              <td>۵۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
+              <td>مرغ سوخاری</td>
+              <td>۴۰,۰۰۰</td>
+              <td><input type="checkbox" class="food-checkbox"></td>
+            </tr>
+            <tr>
+              <td>ماهی پلو</td>
               <td>۴۰,۰۰۰</td>
               <td><input type="checkbox" class="food-checkbox"></td>
             </tr>
